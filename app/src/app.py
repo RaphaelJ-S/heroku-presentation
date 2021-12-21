@@ -34,7 +34,7 @@ def creer_app():
     Configure l'application Flask et créé les tables dans la base de données
     si elles ne sont pas déjà créées.
     """
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DB_CONFIG_POSTGRESQL")
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DB_URL_PGRES")
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
     with app.app_context():
