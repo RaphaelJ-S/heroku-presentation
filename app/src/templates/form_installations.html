@@ -1,0 +1,35 @@
+{% extends "main.html" %}{% block content %}
+<h1>Recherche d'installations</h1>
+<div class="formulaire container">
+  <form id="formulaire-accueil">
+    <div class="form-group grp-input">
+      <label for="input-arr" class="form-label">Arrondissements</label>
+
+      <input
+        type="text"
+        class="form-control"
+        id="input-arr"
+        placeholder="Entrez le nom d'un arrondissement"
+      />
+      <button type="submit" id="btn-soumettre" class="btn btn-primary">
+        Chercher les installations
+      </button>
+    </div>
+    <div class="form-group grp-select">
+      <label for="select-arr" class="form-label">Installations</label>
+      <select name="installation" id="select-arr" class="form-select">
+        <option selected>Sélectionnez l'installation désirée</option>
+        {% for nom in installations %}
+        <option value="{{nom}}">{{nom}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </form>
+  <span class="msg-erreur cache">&nbsp;</span>
+
+  <div class="glissades-tbl"></div>
+  <div class="piscines-tbl"></div>
+  <div class="patinoires-tbl"></div>
+</div>
+<script src="/js/script.js"></script>
+{%endblock%}
