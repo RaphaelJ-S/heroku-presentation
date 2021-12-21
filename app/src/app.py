@@ -11,7 +11,7 @@ from flask_json_schema import JsonValidationError
 import os
 from dotenv import load_dotenv
 
-from flask_migrate import Migrate
+from flask_migrate import Migrate, init, upgrade
 
 
 from app.src.db.init_db import db
@@ -39,6 +39,8 @@ def creer_app():
     db.init_app(app)
     with app.app_context():
         db.create_all()
+        init()
+        upgrade()
 
 
 def get_db():
